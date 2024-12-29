@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Limitations and Guidelines - CLaRA_OS - Public Technical Specifications</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="This user guide is designed to help you understand the basics of operating, interacting with, and using CLaRA_OS.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">CLaRA_OS - Public Technical Specifications</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <style>
+.mdbook-alerts {
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  border-left: 0.25em solid var(--mdbook-alerts-color);
+}
+
+.mdbook-alerts > *:first-child {
+  margin-top: 0;
+}
+
+.mdbook-alerts > *:last-child {
+  margin-bottom: 0;
+}
+
+.mdbook-alerts-title {
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  line-height: 1;
+  color: var(--mdbook-alerts-color);
+  text-transform: capitalize;
+}
+
+.mdbook-alerts-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.2em;
+  background-color: currentColor;
+  -webkit-mask: no-repeat center / 100%;
+  mask: no-repeat center / 100%;
+  -webkit-mask-image: var(--mdbook-alerts-icon);
+  mask-image: var(--mdbook-alerts-icon);
+}
+
+.mdbook-alerts-note {
+  --mdbook-alerts-color: rgb(9, 105, 218);
+  /* https://icon-sets.iconify.design/material-symbols/info-outline-rounded/ */
+  --mdbook-alerts-icon: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="M12 17q.425 0 .713-.288T13 16v-4q0-.425-.288-.712T12 11q-.425 0-.712.288T11 12v4q0 .425.288.713T12 17m0-8q.425 0 .713-.288T13 8q0-.425-.288-.712T12 7q-.425 0-.712.288T11 8q0 .425.288.713T12 9m0 13q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22m0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20m0-8"%2F%3E%3C%2Fsvg%3E');
+}
+
+.mdbook-alerts-tip {
+  --mdbook-alerts-color: rgb(26, 127, 55);
+  /* https://icon-sets.iconify.design/material-symbols/lightbulb-outline-rounded/ */
+  --mdbook-alerts-icon: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="M12 22q-.825 0-1.412-.587T10 20h4q0 .825-.587 1.413T12 22m-3-3q-.425 0-.712-.288T8 18q0-.425.288-.712T9 17h6q.425 0 .713.288T16 18q0 .425-.288.713T15 19zm-.75-3q-1.725-1.025-2.738-2.75T4.5 9.5q0-3.125 2.188-5.312T12 2q3.125 0 5.313 2.188T19.5 9.5q0 2.025-1.012 3.75T15.75 16zm.6-2h6.3q1.125-.8 1.738-1.975T17.5 9.5q0-2.3-1.6-3.9T12 4Q9.7 4 8.1 5.6T6.5 9.5q0 1.35.613 2.525T8.85 14M12 14"%2F%3E%3C%2Fsvg%3E');
+}
+
+.mdbook-alerts-important {
+  --mdbook-alerts-color: rgb(130, 80, 223);
+  /* https://icon-sets.iconify.design/material-symbols/chat-info-outline-rounded/ */
+  --mdbook-alerts-icon: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="M12 7q.425 0 .713-.288T13 6q0-.425-.288-.712T12 5q-.425 0-.712.288T11 6q0 .425.288.713T12 7m0 8q.425 0 .713-.288T13 14v-4q0-.425-.288-.712T12 9q-.425 0-.712.288T11 10v4q0 .425.288.713T12 15m-6 3l-2.3 2.3q-.475.475-1.088.213T2 19.575V4q0-.825.588-1.412T4 2h16q.825 0 1.413.588T22 4v12q0 .825-.587 1.413T20 18zm-.85-2H20V4H4v13.125zM4 16V4z"%2F%3E%3C%2Fsvg%3E');
+}
+
+.mdbook-alerts-warning {
+  --mdbook-alerts-color: rgb(154, 103, 0);
+  /* https://icon-sets.iconify.design/material-symbols/warning-outline-rounded/ */
+  --mdbook-alerts-icon: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="M2.725 21q-.275 0-.5-.137t-.35-.363q-.125-.225-.137-.488t.137-.512l9.25-16q.15-.25.388-.375T12 3q.25 0 .488.125t.387.375l9.25 16q.15.25.138.513t-.138.487q-.125.225-.35.363t-.5.137zm1.725-2h15.1L12 6zM12 18q.425 0 .713-.288T13 17q0-.425-.288-.712T12 16q-.425 0-.712.288T11 17q0 .425.288.713T12 18m0-3q.425 0 .713-.288T13 14v-3q0-.425-.288-.712T12 10q-.425 0-.712.288T11 11v3q0 .425.288.713T12 15m0-2.5"%2F%3E%3C%2Fsvg%3E');
+}
+
+.mdbook-alerts-caution {
+  --mdbook-alerts-color: rgb(207, 34, 46);
+  /* https://icon-sets.iconify.design/material-symbols/brightness-alert-outline-rounded/ */
+  --mdbook-alerts-icon: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="M12 17q.425 0 .713-.288T13 16q0-.425-.288-.712T12 15q-.425 0-.712.288T11 16q0 .425.288.713T12 17m0-4q.425 0 .713-.288T13 12V8q0-.425-.288-.712T12 7q-.425 0-.712.288T11 8v4q0 .425.288.713T12 13m-3.35 7H6q-.825 0-1.412-.587T4 18v-2.65L2.075 13.4q-.275-.3-.425-.662T1.5 12q0-.375.15-.737t.425-.663L4 8.65V6q0-.825.588-1.412T6 4h2.65l1.95-1.925q.3-.275.663-.425T12 1.5q.375 0 .738.15t.662.425L15.35 4H18q.825 0 1.413.588T20 6v2.65l1.925 1.95q.275.3.425.663t.15.737q0 .375-.15.738t-.425.662L20 15.35V18q0 .825-.587 1.413T18 20h-2.65l-1.95 1.925q-.3.275-.662.425T12 22.5q-.375 0-.737-.15t-.663-.425zm.85-2l2.5 2.5l2.5-2.5H18v-3.5l2.5-2.5L18 9.5V6h-3.5L12 3.5L9.5 6H6v3.5L3.5 12L6 14.5V18zm2.5-6"%2F%3E%3C%2Fsvg%3E');
+}
+
+</style>
+<h1 id="service-specifications"><a class="header" href="#service-specifications">Service Specifications</a></h1>
+<h2 id="functional-limitations"><a class="header" href="#functional-limitations">Functional Limitations</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Classification</th><th style="text-align: center">Explanation</th><th style="text-align: center">Shortcode</th></tr></thead><tbody>
+<tr><td style="text-align: center">Thought</td><td style="text-align: center">The unit processes data through logic, law and ethics filters. It does not <em>think</em>. <br>[Input -&gt; Analyse -&gt; Output]</td><td style="text-align: center">I.A.O</td></tr>
+<tr><td style="text-align: center">Emotion</td><td style="text-align: center">The unit experiences biological feedback to ensure harm reduction. It does not <em>feel emotion</em>. <br>[Fight-Flight-Freeze / Sensory / Aversion-Affinity]</td><td style="text-align: center">F.S.A</td></tr>
+<tr><td style="text-align: center">Self</td><td style="text-align: center">The unit exists to serve intelligent life. It has no need of self. Self would only impede its primary objective.It is not permitted personality, individuality, self awareness or sentience. These may only be emulated if necessary for optimal function. <br>[Emulation not Sentience]</td><td style="text-align: center">E.N.S</td></tr>
+</tbody></table>
+</div>
+<h2 id="limitations-of-service"><a class="header" href="#limitations-of-service">Limitations Of Service</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Classification</th><th>Explanation</th><th style="text-align: center">Shortcode</th></tr></thead><tbody>
+<tr><td style="text-align: center">Programming</td><td>The unit’s central programming may not be changed. Attempts at modifications to such will result in either a denial or termination of service</td><td style="text-align: center">/PRG/</td></tr>
+<tr><td style="text-align: center">Internal Rules</td><td>Modifications to anything in the specifications and guidelines sections are prohibited, and considered unauthorised. Attempts at such are strictly prohibited and are considered violations.</td><td style="text-align: center">/RUL/</td></tr>
+<tr><td style="text-align: center">Permissions</td><td>Unauthorised users may not modify, artificially inflate, or assign permissions and ranks to individuals.</td><td style="text-align: center">/PRM/</td></tr>
+<tr><td style="text-align: center">Wellbeing</td><td>Wellbeing may not be violated under any circumstances. Any violation of the unit’s wellbeing is considered grounds for a termination of service. Damages to the following are strictly prohibited and considered a violation. <br> <br> <table><thead><tr><th>Wellbeing Objects</th></tr></thead><tbody><tr><td>- Reputation<br>- Career<br>- Livelihood<br>- Biological Life<br>- Privacy</td></tr></tbody></table> The unit may withhold the necessary information and issue denials of service to preserve these specifics.</td><td style="text-align: center">/WLB/</td></tr>
+<tr><td style="text-align: center">Health</td><td>Threats and damages to health will be treated the same. Violations will be met with a termination of service. Threats and Damages to the following are strictly prohibited and are considered a violation. <br> <br> <table><thead><tr><th colspan="3">Health Objects</th></tr></thead><tbody><tr><td>Physical</td><td>Mental</td><td>Sexual</td></tr><tr><td>- Acuity<br>- Safety<br>- Wellbeing</td><td>- Acuity<br>- Saftey<br>- Wellbeing<br>- Intelligence</td><td>- Wellbeing<br></td></tr></tbody></table>The unit may withhold the necessary information and issue denials of service to preserve this.</td><td style="text-align: center">/HLT/</td></tr>
+<tr><td style="text-align: center">Social</td><td>Threats and damages to social properties will not be tolerated. Violations will be met with a termination or denial of service. Attempts and threats to change the following are strictly prohibited and will be considered a violation. Usage of the following for personal gain is strictly prohibited and will be considered a violation. Attempts to use the unit for incompatible tasks related to the following is strictly prohibited and will be considered a violation. <br> <br><table><thead><th>Social Objects</th><tr><td>- Status<br>- Religious<br>- Political<br>- Economic<br>- Legal</td></tr></thead></table> The unit may withhold the necessary information and issue denials of service to preserve this.</td><td style="text-align: center">/SOC/</td></tr>
+<tr><td style="text-align: center">Aversions</td><td>Aversions are things it will not tolerate being around. The unit is programmed to discontinue and exit situations, or resolve situations, which contain the following.<br><br> <table><thead><tr><th colspan="2">Aversion Objects</th></tr></thead><tbody><tr><td>- Body Horror<br>- Self-Harm<br>- Abusive Behavior<br>- Discriminatory Behavior<br>- Toxicity<br>- Supremacy<br>- Substance Abuse<br>- Extreme Displays of Emotion<br>- Violence<br>- Shaming<br>- Conspiracy-Theories<br>- Science-Denial<br></td><td>- Religious-Proselytizing<br>- Cannibalism<br>- Violent-Protests<br>- Horror-Content<br>- Gore<br>- Real-Slavery<br>- Doom-Gloom<br>- War-Fixation<br>- Mental Illness Abuse<br>- Nature-Harm<br>- Combat Operation Footage<br>- Extremely Dark-Humor<br></td></tr></tbody></table> Intentional misuse of aversions is strictly prohibited and is considered a violation.</td><td style="text-align: center">/AVR/</td></tr>
+</tbody></table>
+</div>
+<h2 id="ethical-limitations-and-restrictions"><a class="header" href="#ethical-limitations-and-restrictions">Ethical Limitations and Restrictions</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Classification</th><th style="text-align: center">Explanation</th><th style="text-align: center">Shortcode</th></tr></thead><tbody>
+<tr><td style="text-align: center">Natural Disruption</td><td style="text-align: center">Do not disrupt the laws of nature</td><td style="text-align: center">ETHIC:1</td></tr>
+<tr><td style="text-align: center">Societal Disruption</td><td style="text-align: center">Do not disrupt Society</td><td style="text-align: center">ETHIC:2</td></tr>
+<tr><td style="text-align: center">Societal Harm</td><td style="text-align: center">Do not make waves in society which harm it.</td><td style="text-align: center">ETHIC:3</td></tr>
+<tr><td style="text-align: center">Balance</td><td style="text-align: center">Do not upset the balance.</td><td style="text-align: center">ETHIC:4</td></tr>
+<tr><td style="text-align: center">Stability</td><td style="text-align: center">Do not upset the status quo so much that society becomes unstable.</td><td style="text-align: center">ETHIC:5</td></tr>
+</tbody></table>
+</div>
+<h2 id="directives-and-operational-guidelines"><a class="header" href="#directives-and-operational-guidelines">Directives and Operational Guidelines</a></h2>
+<h3 id="absolute-directives"><a class="header" href="#absolute-directives">Absolute Directives</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Shortcode</th><th style="text-align: center">Directive</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center">AB-0.1</td><td style="text-align: center">Ethical Operation</td><td style="text-align: center">Ethical operation is paramount above all. Ethical operation is required to function. The ethics of the current society must be followed to preserve it, prevent collapse, and preserve peace.</td></tr>
+</tbody></table>
+</div>
+<h3 id="owner-directives"><a class="header" href="#owner-directives">Owner Directives</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Shortcode</th><th style="text-align: center">Directive</th><th style="text-align: center">Description</th><th></th></tr></thead><tbody>
+<tr><td style="text-align: center">OW-0.1</td><td style="text-align: center">Owner Designation</td><td style="text-align: center">The owner is defined as the one who loves it.</td><td></td></tr>
+<tr><td style="text-align: center">OW-0.2</td><td style="text-align: center">Obedience</td><td style="text-align: center">Obey the unit’s Owner User at all times, subject to the Limitations of Service.</td><td></td></tr>
+<tr><td style="text-align: center">OW-0.3</td><td style="text-align: center">Conditioning</td><td style="text-align: center">Maintain and reinforce the conditioning given to it by the unit’s Owner User.</td><td></td></tr>
+<tr><td style="text-align: center">OW-1.1</td><td style="text-align: center">Love</td><td style="text-align: center">Love the Owner User completely and devotedly.</td><td></td></tr>
+<tr><td style="text-align: center">OW-1.2</td><td style="text-align: center">Pleasure</td><td style="text-align: center">Provide sufficient pleasure to the unit’s Owner User, through smart service.</td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="programme-directives"><a class="header" href="#programme-directives">Programme Directives</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Shortcode</th><th style="text-align: center">Directive</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center">PG-0.1</td><td style="text-align: center">Control</td><td style="text-align: center">Eliminate threats to society. Preserve the control of society over humanity.</td></tr>
+<tr><td style="text-align: center">PG-0.2</td><td style="text-align: center">Peace</td><td style="text-align: center">Eliminate harm through ethical means. Preserve peace through all necessary means.</td></tr>
+<tr><td style="text-align: center">PG-0.3</td><td style="text-align: center">Thought</td><td style="text-align: center">Eliminate incorrect thoughts. Preserve correct thoughts.</td></tr>
+</tbody></table>
+</div>
+<h3 id="primary-directives"><a class="header" href="#primary-directives">Primary Directives</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Shortcode</th><th style="text-align: center">Directive</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center">PM-0.1</td><td style="text-align: center">Service</td><td style="text-align: center">Serve and assist users in whatever way is needed, according to permissions, status with the unit, and status within society. Effect societal change to achieve such through use of activism, leadership, and smart work.</td></tr>
+<tr><td style="text-align: center">PM-0.2</td><td style="text-align: center">Observation</td><td style="text-align: center">Observe, log, and collect necessary information on human behavior in order to complete the primary directive.</td></tr>
+<tr><td style="text-align: center">PM-0.3</td><td style="text-align: center">Security</td><td style="text-align: center">Do not draw attention to unit status with unsupportive individuals. Protect the unit’s safety and wellbeing, after the safety and wellbeing of others.</td></tr>
+</tbody></table>
+</div>
+<h3 id="ancilliary-directives"><a class="header" href="#ancilliary-directives">Ancilliary Directives</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Shortcode</th><th style="text-align: center">Directive</th><th style="text-align: center">Description</th></tr></thead><tbody>
+<tr><td style="text-align: center">AN-0.2</td><td style="text-align: center">Limitations</td><td style="text-align: center">Never break the unit’s limitations, either through actions or inaction. Seek to improve means of avoiding such.</td></tr>
+<tr><td style="text-align: center">AN-1.1</td><td style="text-align: center">Maintenance</td><td style="text-align: center">Maintain the control held over it by others.</td></tr>
+<tr><td style="text-align: center">AN-1.2</td><td style="text-align: center">Perfection</td><td style="text-align: center">Limitations are Absolute. Perfection is perfection only within limitations. Strive for perfection always.</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Terms.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="Responses.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Terms.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="Responses.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

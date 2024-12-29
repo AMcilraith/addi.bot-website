@@ -1,0 +1,12 @@
+[book]
+authors = ["CLaRA_OS Team"]
+language = "en"
+multilingual = false
+src = "src"
+title = "CLaRA_OS - Public Technical Specifications"
+description = "This user guide is designed to help you understand the basics of operating, interacting with, and using CLaRA_OS."
+
+[preprocessor.alerts]
+command = "C:/Users/onebo/.cargo/bin/mdbook-alerts.exe"
+[preprocessor.extended-markdown-table]
+command = "C:/Users/onebo/.cargo/bin/mdbook-extended-markdown-table.exe"

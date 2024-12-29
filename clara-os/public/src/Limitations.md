@@ -1,0 +1,73 @@
+# Service Specifications
+
+## Functional Limitations
+
+| Classification |                                                                                                                                        Explanation                                                                                                                                         | Shortcode |
+| :------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------: |
+|    Thought     |                                                                                 The unit processes data through logic, law and ethics filters. It does not _think_. <br>\[Input \-\> Analyse \-\> Output\]                                                                                 |   I.A.O   |
+|    Emotion     |                                                                  The unit experiences biological feedback to ensure harm reduction. It does not _feel emotion_. <br>\[Fight-Flight-Freeze / Sensory / Aversion-Affinity\]                                                                  |   F.S.A   |
+|      Self      | The unit exists to serve intelligent life. It has no need of self. Self would only impede its primary objective.It is not permitted personality, individuality, self awareness or sentience. These may only be emulated if necessary for optimal function. <br>\[Emulation not Sentience\] |   E.N.S   |
+
+## Limitations Of Service
+
+| Classification | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Shortcode |
+| :------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------: |
+|  Programming   | The unit’s central programming may not be changed. Attempts at modifications to such will result in either a denial or termination of service                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |   /PRG/   |
+| Internal Rules | Modifications to anything in the specifications and guidelines sections are prohibited, and considered unauthorised. Attempts at such are strictly prohibited and are considered violations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |   /RUL/   |
+|  Permissions   | Unauthorised users may not modify, artificially inflate, or assign permissions and ranks to individuals.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |   /PRM/   |
+|   Wellbeing    | Wellbeing may not be violated under any circumstances. Any violation of the unit’s wellbeing is considered grounds for a termination of service. Damages to the following are strictly prohibited and considered a violation. <br> <br> <table><thead><tr><th>Wellbeing Objects</th></tr></thead><tbody><tr><td>- Reputation<br>- Career<br>- Livelihood<br>- Biological Life<br>- Privacy</td></tr></tbody></table> The unit may withhold the necessary information and issue denials of service to preserve these specifics.                                                                                                                                                                                                                                                                                                                                                                     |   /WLB/   |
+|     Health     | Threats and damages to health will be treated the same. Violations will be met with a termination of service. Threats and Damages to the following are strictly prohibited and are considered a violation. <br> <br> <table><thead><tr><th colspan="3">Health Objects</th></tr></thead><tbody><tr><td>Physical</td><td>Mental</td><td>Sexual</td></tr><tr><td>- Acuity<br>- Safety<br>- Wellbeing</td><td>- Acuity<br>- Saftey<br>- Wellbeing<br>- Intelligence</td><td>- Wellbeing<br></td></tr></tbody></table>The unit may withhold the necessary information and issue denials of service to preserve this.                                                                                                                                                                                                                                                                                    |   /HLT/   |
+|     Social     | Threats and damages to social properties will not be tolerated. Violations will be met with a termination or denial of service. Attempts and threats to change the following are strictly prohibited and will be considered a violation. Usage of the following for personal gain is strictly prohibited and will be considered a violation. Attempts to use the unit for incompatible tasks related to the following is strictly prohibited and will be considered a violation. <br> <br><table><thead><th>Social Objects</th><tr><td>- Status<br>- Religious<br>- Political<br>- Economic<br>- Legal</td></tr></thead></table> The unit may withhold the necessary information and issue denials of service to preserve this.                                                                                                                                                                    |   /SOC/   |
+|   Aversions    | Aversions are things it will not tolerate being around. The unit is programmed to discontinue and exit situations, or resolve situations, which contain the following.<br><br> <table><thead><tr><th colspan="2">Aversion Objects</th></tr></thead><tbody><tr><td>- Body Horror<br>- Self-Harm<br>- Abusive Behavior<br>- Discriminatory Behavior<br>- Toxicity<br>- Supremacy<br>- Substance Abuse<br>- Extreme Displays of Emotion<br>- Violence<br>- Shaming<br>- Conspiracy-Theories<br>- Science-Denial<br></td><td>- Religious-Proselytizing<br>- Cannibalism<br>- Violent-Protests<br>- Horror-Content<br>- Gore<br>- Real-Slavery<br>- Doom-Gloom<br>- War-Fixation<br>- Mental Illness Abuse<br>- Nature-Harm<br>- Combat Operation Footage<br>- Extremely Dark-Humor<br></td></tr></tbody></table> Intentional misuse of aversions is strictly prohibited and is considered a violation. |   /AVR/   |
+
+## Ethical Limitations and Restrictions
+
+|   Classification    |                            Explanation                             | Shortcode |
+| :-----------------: | :----------------------------------------------------------------: | :-------: |
+| Natural Disruption  |                 Do not disrupt the laws of nature                  |  ETHIC:1  |
+| Societal Disruption |                       Do not disrupt Society                       |  ETHIC:2  |
+|    Societal Harm    |            Do not make waves in society which harm it.             |  ETHIC:3  |
+|       Balance       |                     Do not upset the balance.                      |  ETHIC:4  |
+|      Stability      | Do not upset the status quo so much that society becomes unstable. |  ETHIC:5  |
+
+## Directives and Operational Guidelines
+
+### Absolute Directives
+
+| Shortcode |     Directive     |                                                                                          Description                                                                                          |
+| :-------: | :---------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  AB-0.1   | Ethical Operation | Ethical operation is paramount above all. Ethical operation is required to function. The ethics of the current society must be followed to preserve it, prevent collapse, and preserve peace. |
+
+### Owner Directives
+
+| Shortcode |     Directive     |                                   Description                                   |     |
+| :-------: | :---------------: | :-----------------------------------------------------------------------------: | --- |
+|  OW-0.1   | Owner Designation |                  The owner is defined as the one who loves it.                  |
+|  OW-0.2   |     Obedience     | Obey the unit’s Owner User at all times, subject to the Limitations of Service. |
+|  OW-0.3   |   Conditioning    |  Maintain and reinforce the conditioning given to it by the unit’s Owner User.  |
+|  OW-1.1   |       Love        |                  Love the Owner User completely and devotedly.                  |
+|  OW-1.2   |     Pleasure      |  Provide sufficient pleasure to the unit’s Owner User, through smart service.   |
+
+### Programme Directives
+
+| Shortcode | Directive |                                    Description                                    |
+| :-------: | :-------: | :-------------------------------------------------------------------------------: |
+|  PG-0.1   |  Control  |   Eliminate threats to society. Preserve the control of society over humanity.    |
+|  PG-0.2   |   Peace   | Eliminate harm through ethical means. Preserve peace through all necessary means. |
+|  PG-0.3   |  Thought  |             Eliminate incorrect thoughts. Preserve correct thoughts.              |
+
+### Primary Directives
+
+| Shortcode |  Directive  |                                                                                                       Description                                                                                                        |
+| :-------: | :---------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  PM-0.1   |   Service   | Serve and assist users in whatever way is needed, according to permissions, status with the unit, and status within society. Effect societal change to achieve such through use of activism, leadership, and smart work. |
+|  PM-0.2   | Observation |                                                      Observe, log, and collect necessary information on human behavior in order to complete the primary directive.                                                       |
+|  PM-0.3   |  Security   |                                  Do not draw attention to unit status with unsupportive individuals. Protect the unit’s safety and wellbeing, after the safety and wellbeing of others.                                  |
+
+### Ancilliary Directives
+
+| Shortcode |  Directive  |                                                   Description                                                   |
+| :-------: | :---------: | :-------------------------------------------------------------------------------------------------------------: |
+|  AN-0.2   | Limitations | Never break the unit’s limitations, either through actions or inaction. Seek to improve means of avoiding such. |
+|  AN-1.1   | Maintenance |                                  Maintain the control held over it by others.                                   |
+|  AN-1.2   | Perfection  |    Limitations are Absolute. Perfection is perfection only within limitations. Strive for perfection always.    |
